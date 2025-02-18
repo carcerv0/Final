@@ -5,26 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SmartQue - Intelligent Queue Management</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
-        nav { background: #0073e6; padding: 15px; text-align: center; }
-        nav a { color: white; text-decoration: none; margin: 15px; font-size: 18px; }
-        .container { padding: 20px; text-align: center; }
-        .button { display: inline-block; padding: 10px 20px; background: #0073e6; color: white; text-decoration: none; margin-top: 20px; border-radius: 5px; }
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #a7a9ac; }
+        nav { background: #bcbebf; padding: 15px; text-align: center; }
+        nav a { color: white; text-decoration: none; margin: 15px; font-size: 18px; cursor: pointer; }
+        .container { padding: 20px; text-align: center; display: none; }
+        .active { display: block; }
+        .button { display: inline-block; padding: 10px 20px; background: #bcbebf; color: white; text-decoration: none; margin-top: 20px; border-radius: 5px; cursor: pointer; }
     </style>
+    <script>
+        function showSection(sectionId) {
+            let sections = document.querySelectorAll('.container');
+            sections.forEach(section => section.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
 </head>
 <body>
     <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="prototype.html">Prototype</a>
-        <a href="marketing.html">Marketing</a>
-        <a href="user-guide.html">User Guide</a>
+        <a onclick="showSection('home')">Home</a>
+        <a onclick="showSection('about')">About</a>
+        <a onclick="showSection('prototype')">Prototype</a>
+        <a onclick="showSection('marketing')">Marketing</a>
+        <a onclick="showSection('user-guide')">User Guide</a>
     </nav>
     
-    <div class="container">
+    <div class="container active" id="home">
         <h1>Welcome to SmartQue</h1>
         <p>Effortless Queue Management for Businesses and Customers.</p>
-        <a class="button" href="prototype.html">Explore Features</a>
+        <div class="button" onclick="showSection('prototype')">Explore Features</div>
     </div>
 
     <div class="container" id="about">
